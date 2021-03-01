@@ -1,0 +1,15 @@
+@import "../common.scss";
+.login-container{
+    width: 600px;
+    height: 300px;
+    margin-left: 50%;
+    margin-top: 50%;
+    transform: translate(-50%, -50%);
+    .tips{
+        color: #4aacee;
+        cursor: pointer;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
