@@ -75,11 +75,11 @@ export default (props) => {
             <MdEditor
                 ref={nodeMdText}
                 value={article}
-                style={{height: "500px"}}
+                style={{height: "calc(100vh - 120px)"}}
                 renderHTML={(text) => mdParser.render(text)}
                 onChange={handleEditorChange}
             />
-            <Button type={"primary"} onClick={save}>保存</Button>
+            <Button type={"primary"} onClick={save} style={{float: 'right',margin: '10px'}}>保存</Button>
         </div>
 
     )
