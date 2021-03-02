@@ -15,7 +15,7 @@ export default {
                 name: '管理页',
                 icon: <CrownOutlined />,
                 access: 'canAdmin',
-                component: './admin',
+                component: './Admin',
                 routes: [
                     {
                         path: '/admin/sub-page1',

@@ -13,7 +13,21 @@ api.interceptors.request.use(
         request.cancelToken = new axios.CancelToken(cancel => {
             window.axiosCancel.push({cancel})
         })
-
+        // sessionStorage.setItem('userInfo', JSON.stringify(res.data))
+        const userInfo = sessionStorage.getItem('userInfo')
+        console.log(userInfo);
+        // 设置参数格式
+        if (!request.headers['Content-Type']) {
+            request.headers = {
+                'Content-Type': 'application/json'
+            }
+        }
+        // 添加token到headers
+        if (userInfo) {
+            request.headers.authorization = JSON.parse(userInfo).token
+        } else {
+            // console.log(999999, process.env.NODE_ENV, window.location)
+        }
         return {
             ...request,
             // signal

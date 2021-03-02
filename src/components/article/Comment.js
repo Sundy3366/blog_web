@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {getArticle} from '@request'
-import { Input, Avatar, Comment} from 'antd';
+import React from 'react';
+import {Avatar, Comment} from 'antd';
 import styles from '@css/article/comment.module.scss'
-const { TextArea } = Input;
 const CommentContainer = ({children}) => {
     return (
         <div className={styles.commentList}>

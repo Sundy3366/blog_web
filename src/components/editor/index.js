@@ -1,5 +1,4 @@
 import React, {useRef, useEffect, useState} from 'react'
-import * as ReactDOM from 'react-dom'
 import MarkdownIt from 'markdown-it'
 import MdEditor from 'react-markdown-editor-lite'
 // import style manually
@@ -8,6 +7,7 @@ import {Button, Message, Row, Col} from 'antd'
 import {getArticle, saveArticle} from '@request'
 import history from "@history";
 import styles from '@css/article/article.module.scss'
+import { getSessionItem} from '@utils'
 // Register plugins if required
 // MdEditor.use(YOUR_PLUGINS_HERE);
 
@@ -15,7 +15,6 @@ import styles from '@css/article/article.module.scss'
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 mdParser.render('# markdown-it rulezz!');
 // Finish!
-
 
 export default (props) => {
     const {articleId} = props.match.params
@@ -41,19 +40,22 @@ export default (props) => {
         console.log(props.match);
         console.log(nodeMdText.current);
         console.log(nodeMdText.current.state.html);
+        let userId = getSessionItem('userId','userInfo')
+        // console.log(userId);
         // return nodeMdText.current.;
         if(!title || title === 'title'){
             Message.warn('标题不能为空！')
             return
         }
         saveArticle(articleId, {
-            title: title,
+            userId,
+            title,
             content: nodeMdText.current.state.text,
             htmlContent: nodeMdText.current.state.html,
         }).then(res => {
             console.log(res);
             Message.success('发布成功!')
-            history.push('/home')
+            history.push('/home?fixedHeader=true&fixSiderbar=true')
         }).catch(err => {
             console.log(err);
         })

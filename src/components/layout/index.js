@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Descriptions, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-import type { ProSettings } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import '@ant-design/pro-layout/dist/layout.css';
@@ -29,7 +28,6 @@ const content = (
 
 );
 function jumpEdit() {
-    console.log(1234);
     createArticle({
         categoryId: '1234',
         title: '2020-02-24'

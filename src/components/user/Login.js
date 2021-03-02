@@ -18,7 +18,8 @@ const Login = () => {
                 message.error(res.message)
             }else{
                 message.success('登录成功！')
-                history.push('/home')
+                sessionStorage.setItem('userInfo', JSON.stringify(res.data))
+                history.push('/home?fixedHeader=true&fixSiderbar=true')
             }
         })
 
