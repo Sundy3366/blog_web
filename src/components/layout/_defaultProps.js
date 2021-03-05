@@ -1,14 +1,20 @@
 import React from 'react';
-import { SmileOutlined, CrownOutlined } from '@ant-design/icons';
+import { SmileOutlined, CrownOutlined, TabletOutlined } from '@ant-design/icons';
 export default {
     route: {
         path: '/',
         routes: [
             {
                 path: '/home',
-                name: '欢迎',
+                name: '主页',
                 icon: <SmileOutlined />,
                 component: './Home',
+            },
+            {
+                path: '/welcome',
+                name: '欢迎',
+                icon: <TabletOutlined />,
+                component: './Welcome',
             },
             {
                 path: '/admin',
@@ -16,26 +22,6 @@ export default {
                 icon: <CrownOutlined />,
                 access: 'canAdmin',
                 component: './Admin',
-                routes: [
-                    {
-                        path: '/admin/sub-page1',
-                        name: '一级页面',
-                        icon: <CrownOutlined />,
-                        component: './Welcome',
-                    },
-                    {
-                        path: '/admin/sub-page2',
-                        name: '二级页面',
-                        icon: <CrownOutlined />,
-                        component: './Welcome',
-                    },
-                    {
-                        path: '/admin/sub-page3',
-                        name: '三级页面',
-                        icon: <CrownOutlined />,
-                        component: './Welcome',
-                    },
-                ],
             },
            /* {
                 name: '列表页',
