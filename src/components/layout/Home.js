@@ -1,5 +1,5 @@
 import React from 'react';
-import { Descriptions } from 'antd';
+import { Button } from 'antd';
 import history from '@history'
 import ArticleList from '@components/article/ArticleList'
 import { createArticle } from "@request";
@@ -16,14 +16,13 @@ const Home = () => {
     }
     return (
         <>
-            <Descriptions>
-                <Descriptions.Item label="创建人">
+            <Button type={'primary'} onClick={jumpEdit}>写文章</Button>
+            {/*<span style={{color: '#4aacee'}} onClick={jumpEdit}>写文章</span>*/}
+            {/*<Descriptions>
+                <Descriptions.Item label="创建人12345654321">
                     <span style={{color: '#4aacee'}} onClick={jumpEdit}>写文章</span>
                 </Descriptions.Item>
-
-                <div>欢迎！哈哈</div>
-            </Descriptions>
-
+            </Descriptions>*/}
             <ArticleList/>
         </>
     )

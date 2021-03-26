@@ -19,6 +19,7 @@ module.exports = {
 			"@utils": path.resolve("src/utils"),
 			"@defs": path.resolve("src/defs"),
 			"@history": path.resolve("src/history"),
+			"@pages": path.resolve("src/pages"),
 		},
 		plugins: [
 			// new BundleAnalyzerPlugin(),

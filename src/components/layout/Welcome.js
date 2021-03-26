@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-const welcome  = ()  =>{
+import React from 'react';
+const Welcome  = ()  =>{
     return(
-        <div>welcome！哈哈</div>
+        <div>欢迎111111</div>
     )
 }
-export default welcome
+export default Welcome

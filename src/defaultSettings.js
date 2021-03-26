@@ -1,4 +1,4 @@
-{
+/*{
     "navTheme": "dark",
     "layout": "side",
     "contentWidth": "Fluid",
@@ -8,8 +8,8 @@
     "locale": true
 },
     "headerHeight": 48,
-    "title": "Ant Design Pro",
+    // "title": "Ant Design Pro",
     "iconfontUrl": "",
     "primaryColor": "#1890ff",
     "splitMenus": false
-}
+}*/

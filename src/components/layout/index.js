@@ -7,11 +7,10 @@ import {
 import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import '@ant-design/pro-layout/dist/layout.css';
-import history from '@history'
 import Home from '@components/layout/Home'
-import Welcome from '@components/layout/Welcome'
 import Admin from '@components/layout/Admin'
-import {PrivateRoute} from '@utils'
+import Welcome from '@components/layout/Welcome'
+import Personal from '@components/layout/Personal'
 const content = (
     <>
         {/*<Descriptions size="small" column={2}>
@@ -28,20 +27,21 @@ const content = (
             <Descriptions.Item label="备注">中国浙江省杭州市西湖区古翠路</Descriptions.Item>
         </Descriptions>
         <ArticleList/>*/}
-        <Router history={history}>
             <Switch>
-                <Route exact path="/home" component={Home}></Route>
-                <PrivateRoute path='/welcome' component={Welcome}/>
-                <PrivateRoute path='/admin' component={Admin}/>
+                <Route path="/home" component={Home}/>
+                <Route path='/welcome' component={Welcome}/>
+                <Route path='/admin' component={Admin}/>
+                <Route path='/personal' component={Personal}/>
             </Switch>
-        </Router>
     </>
 
 );
 
-export default () => {
+export default (props) => {
     const [settings, setSetting] = useState(undefined);
     const [pathname, setPathname] = useState('/home');
+    console.log(props.location.pathname);
+
     return (
         <div
             id="test-pro-layout"
@@ -51,20 +51,18 @@ export default () => {
         >
             <ProLayout
                 {...defaultProps}
-                location={{
-                    pathname,
-                }}
+                location={{pathname: props.location.pathname}}
                 fixSiderbar
                 onMenuHeaderClick={(e) => console.log(e)}
                 menuItemRender={(menuItemProps, defaultDom) => {
-                    // return <Link to={menuItemProps.path}>{defaultDom}</Link>;
-                     return <a
+                    return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+                     /*return <a
                          onClick={() => {
                              setPathname(menuItemProps.path || '/welcome');
                          }}
                      >
                          {defaultDom}
-                     </a>
+                     </a>*/
                 }}
                 rightContentRender={() => (
                     <div>

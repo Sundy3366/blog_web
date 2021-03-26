@@ -4,7 +4,7 @@
 const proxy = require("http-proxy-middleware");
 module.exports = function (app) {
 	app.use(
-		['/user', '/article'],
+		['/user', '/article','upload'],
 		proxy({
 			target: process.env.NODE_ENV === 'development' && "http://localhost:8989",
 			secure: false,

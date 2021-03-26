@@ -1,0 +1,12 @@
+.personWrapper{
+    display: flex;
+    justify-content: flex-start;
+    .navContent{
+        width: calc(100% - 260px);
+        padding: 20px;
+    }
+}
+.basicSetting{
+    //display: flex;
+    //justify-content: flex-start;
+}

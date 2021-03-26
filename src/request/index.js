@@ -60,7 +60,12 @@ export const register = async data => await api.post(`/user/register`, data)
 export const createArticle = async data => await api.post(`/article/notes/create`, data)
 export const saveArticle = async (articleId, data) => await api.post(`/article/notes/save/${articleId}`, data)
 export const getArticle = async (articleId) => await api.post(`/article/notes/preview/${articleId}`)
-export const getArticleList = async (data) => await api.post(`/article/notes/getList`,data)
+export const getArticleList = async (data) => await api.post(`/article/notes/getList`, data)
+export const uploadAvatar = async (data) => await api.post(`/upload/upload`, data)
+export const updateUserInfo = async (data) => await api.post(`/user/update`, data)
+export const getUserInfo = async (id) => await api.get(`/user/userInfo/${id}`)
+export const updateAvatar = async (id, data) => await api.post(`/user/avatar/${id}`, data)
+
 
 /* 修改用户密码*/
 // export const changePasswordData = async (data) => await api.post(`/user/change-pw`, data)

@@ -18,12 +18,12 @@ function App() {
         <>
             <Router history={history}>
                 <Switch>
-                    <Route exact path="/"><Login/></Route>
+                    {/*<Route exact path="/"><Login/></Route>*/}
                     <PrivateRoute path='/login' component={Login} exact/>
                     <PrivateRoute path='/register' component={Register} exact/>
-                    <PrivateRoute path='/home' component={Dashboard}/>
-                    <PrivateRoute path='/edit/:articleId' component={Edit}/>
-                    <PrivateRoute path='/preview/:articleId' component={Article}/>
+                    <PrivateRoute path='/' component={Dashboard}/>
+                    <PrivateRoute path='/edit/:articleId' component={Edit} exact/>
+                    <PrivateRoute path='/preview/:articleId' component={Article} exact/>
                 </Switch>
             </Router>
         </>
