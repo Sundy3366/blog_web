@@ -1,7 +1,230 @@
 @import '~antd/dist/antd.css';
-body{
-    background: #f9f9f9;;
-}
 .sec-md{
     border-right: 1px solid #ccc;
+}
+html{
+    overflow: hidden;
+}
+body {
+    background: #f9f9f9;
+    letter-spacing: 0.4px;
+    color: #444;
+    height: 100%;
+    font-size: 14px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+hr {
+    background: #b9babb;
+    height: 1px;
+    border: none;
+}
+
+ul, li, ol {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.ant-pagination-options {
+    float: right;
+    margin-right: 20px;
+}
+
+.ant-pagination-total-text {
+    float: left;
+    margin-left: 24px;
+}
+
+.ant-spin-nested-loading > div > .ant-spin {
+    max-height: 100%;
+}
+
+.ant-form-item {
+    margin-bottom: 10px;
+}
+
+.ant-checkbox-inner {
+    width: 20px;
+    height: 20px;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #1890ff;
+    border: none;
+}
+
+body ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.ant-table-scroll ::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ant-table-footer {
+    background: #fff;
+}
+
+.ant-list-item-action-split {
+    background: inherit;
+}
+
+.ant-collapse-content > .ant-collapse-content-box {
+    padding: 0 !important;
+}
+
+.ant-table-footer {
+    border-bottom: none;
+}
+
+.ant-table.ant-table-bordered .ant-table-footer {
+    border: none;
+    border-top: 1px solid #e8e8e8;
+}
+
+button {
+    margin-right: 10px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.ant-table-pagination.ant-pagination {
+    width: 100%;
+}
+
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+    background: #fff !important;
+}
+
+.ant-collapse-borderless > .ant-collapse-item {
+    border: none !important;
+}
+
+.ant-collapse > .ant-collapse-item {
+    border: none !important;
+}
+.ant-menu-item{
+    overflow: initial !important;
+}
+.ant-menu-item-selected img {
+    opacity: 1;
+}
+
+.toast-it {
+    background-color: #555555;
+    color: #F4F4F4;
+    padding: 20px 30px;
+    border-radius: 3px;
+    text-align: center;
+    position: fixed;
+    /* center horizontally */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+
+    animation-name: TOAST-APPEAR;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+}
+.loadingWrapper{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    .loading {
+        background-color: #555555;
+        color: #F4F4F4;
+        background-size: 100%;
+        width: 30px;
+        height: 30px;
+        border-radius: 3px;
+        text-align: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@keyframes TOAST-APPEAR {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        top: 50%;
+    }
+    100% {
+        opacity: 0;
+        top: 45%;
+    }
+}
+.ant-tabs-nav .ant-tabs-tab-active{
+    color: #333 !important;
+}
+.ant-tabs-bar{
+    border-bottom: none !important;
+}
+.ant-tabs-ink-bar{
+    background: #434c77 !important;
+}
+
+#empty {
+    width: 222px;
+    height: 108px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -54px;
+    margin-left: -111px;
+}
+
+#dwiEmpty {
+    width: 354px;
+    height: 126px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -63px;
+    margin-left: -177px;
+}
+#loading{
+    position: fixed;
+    left: 50%;
+    top: 50%
+}
+
+
+#spinArea{
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-corner {
+    background-color: #000;
+    opacity: 0.2;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,.2);
+    box-shadow: 0 0 1px 0;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
 }

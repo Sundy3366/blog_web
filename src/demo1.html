@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            width: 800px;
+            height: 800px;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            width: 800px;
+            height: 500px;
+            position: absolute;
+            top: -300px;
+            visibility: hidden;
+            animation-delay: 2s;
+            animation-duration: 2s;
+            animation-name: _cards;
+            -webkit-animation-fill-mode: forwards;
+        }
+        .card{
+            width: 180px;
+            height: 200px;
+            background: yellow;
+            margin: 10px;
+            animation-name: zy;
+            animation-duration: 2s;
+            -webkit-animation-fill-mode: forwards;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            margin: 300px auto 0;
+            position: relative;
+        }
+        .top{
+            width: 100%;
+            height: 100px;
+            background: #7ec1ff;
+            animation-duration: 2s;
+            animation-name: _top;
+            -webkit-animation-fill-mode: forwards;
+            /*animation-delay: 1s;*/
+            /*transform: translateY(-300px)*/
+        }
+        .inner{
+            width: 100%;
+            height: 200px;
+            background: #2f54eb;
+        }
+        @keyframes _top {
+            /*0%{transform: translateY(0)}*/
+            100%{transform: translateY(-300px) rotateX(45deg);}
+        }
+        @keyframes _cards {
+            0%{ visibility: visible}
+            100%{visibility: visible}
+        }
+        @keyframes zy{
+            10%{ transform: rotate(15deg)}
+            20%{ transform: rotate(-10deg)}
+            30%{ transform: rotate(5deg)}
+            40%{ transform: rotate(-5deg)}
+            50%,100%{ transform: rotate(0deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="box">
+            <ul class="cards">
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+                <li class="card"></li>
+            </ul>
+            <div class="top"></div>
+            <div class="inner"></div>
+        </div>
+    </div>
+</body>
+<script>
+
+    /*setTimeout(() =>{
+
+    },2000)*/
+</script>
+</html>

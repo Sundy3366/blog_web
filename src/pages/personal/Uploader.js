@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
-import {Upload, message} from 'antd';
-import {LoadingOutlined, PlusOutlined} from '@ant-design/icons';
+import React, {useEffect, useState} from 'react';
+import {Upload, message, Button} from 'antd';
+import {UploadOutlined} from '@ant-design/icons';
 import {getSessionItem} from '@utils'
 import {updateAvatar} from '@request'
+import ImgCrop from 'antd-img-crop';
 
-const Uploader = () => {
+const Uploader = ({avatar}) => {
     const [loading, setLoading] = useState(false)
-    const [imageUrl, setImageUrl] = useState(null)
+    const [imageUrl, setImageUrl] = useState(avatar)
+    useEffect(()=>{
+        if(avatar) setImageUrl(avatar)
+    },[])
     let userId = getSessionItem('userId', 'userInfo')
     const getBase64 = (img, callback) => {
         const reader = new FileReader();
@@ -18,19 +22,17 @@ const Uploader = () => {
             setLoading(true)
             return;
         }
-        console.log(info);
-        console.log(info.file.originFileObj);
         if (info.file.status === 'done') {
             getBase64(info.file.originFileObj, imageUrl => {
                 setImageUrl(imageUrl)
                 setLoading(false)
-                saveAvatar()
+                saveAvatar(imageUrl)
             });
         }
     };
-    const saveAvatar = () => {
+    const saveAvatar = (url) => {
         //更新图片地址
-        updateAvatar(userId, {avatar: imageUrl}).then(res => {
+        updateAvatar(userId, {avatar: url}).then(res => {
             console.log(res)
         }).catch(err => {
             console.log(err)
@@ -47,24 +49,43 @@ const Uploader = () => {
         }
         return isJpgOrPng && isLt2M;
     }
-    const uploadButton = (
-        <div>
-            {loading ? <LoadingOutlined/> : <PlusOutlined/>}
-            <div style={{marginTop: 8}}>Upload</div>
-        </div>
-    );
+
+    const onPreview = async file => {
+        let src = file.url;
+        if (!src) {
+            src = await new Promise(resolve => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file.originFileObj);
+                reader.onload = () => resolve(reader.result);
+            });
+        }
+        const image = new Image();
+        image.src = src;
+        const imgWindow = window.open(src);
+        imgWindow.document.write(image.outerHTML);
+    };
+
     return (
-        <Upload
-            name="avatar"
-            listType="picture-card"
-            className="avatar-uploader"
-            showUploadList={false}
-            action="http://localhost:8989/upload/upload"
-            beforeUpload={beforeUpload}
-            onChange={handleChange}
-        >
-            {imageUrl ? <img src={imageUrl} alt="avatar" style={{width: '100%'}}/> : uploadButton}
-        </Upload>
+        <div>
+            {imageUrl && <img src={imageUrl} alt="avatar" style={{width: '150px', height: '150px'}}/>}
+            1234
+            <div style={{margin: '0 auto', display: 'inline-block'}}>
+                <ImgCrop rotate>
+                    <Upload
+                        name="avatar"
+                        className="avatar-uploader"
+                        showUploadList={false}
+                        action="http://localhost:8989/upload/upload"
+                        beforeUpload={beforeUpload}
+                        onChange={handleChange}
+                        onPreview={onPreview}
+                    >
+                        <Button icon={<UploadOutlined/>} style={{margin: '10px auto'}}>Upload</Button>
+                    </Upload>
+                </ImgCrop>
+            </div>
+        </div>
+
     )
 }
 export default Uploader
